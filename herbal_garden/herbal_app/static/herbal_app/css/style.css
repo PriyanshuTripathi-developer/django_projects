@@ -1,0 +1,83 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(#10d41094, transparent);
+    padding: 20px;
+}
+.leaf {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background-image: url('https://images.pexels.com/photos/2364633/pexels-photo-2364633.jpeg'); /* Leaf image */
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: fall linear infinite;
+      pointer-events: none;
+      z-index: -999;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-800px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0.5;
+      }
+    }
+
+h1 {
+    text-align: center;
+    color: #2f6e4e;
+}
+
+form {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #2f6e4e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.herb-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);  
+}
+
+.herb-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    inset: 0 0 0 0;
+    transform:
+    rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+     translate(550px);
+}
+
+.herb-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.herb-card aos-init aos-animate{
+    backdrop-filter: blur(5px);
+}
