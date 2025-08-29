@@ -1,0 +1,13 @@
+{% include "base.html" %}
+<div class="center-box">
+{% block content %}
+<h2>Login</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary">Login</button>   
+</form>
+<div id="vanta-bg"></div>
+<p class="mt-3"><a href="{% url 'password_reset' %}">Forgot password?</a></p>
+{% endblock %}
+</div>

@@ -1,0 +1,27 @@
+
+{% include "header.html" %}
+
+ <!-- Hero Section -->
+    <section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://karnatakatourism.org/wp-content/uploads/2020/05/Hampi.jpg) no-repeat center center / cover;">
+        <h1>Discover India's Cultural Heritage</h1>
+        <p>Journey through time with our interactive map showcasing India's magnificent monuments, temples, and historical sites with immersive 360° experiences.</p>
+        <div data-aos="fade-up" class="search-bar">
+            <form method="get">
+            <input style="width:500px;" type="text" name="search" placeholder="Search for a heritage site...">
+            <button class="filter-btn" style="height:55px;" type="submit">Explore</button>
+            </form>
+        </div>
+        <div class="scrolldown-indicator">↓</div>
+    </section>
+    
+    <!-- Main Content -->
+    <div data-aos="fade-up" class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+        <!-- Map Container -->
+        <div class="map-container">
+            <div class="map-placeholder" id="map" style="height: 600px;
+    width: 100%;
+    border-radius: 12px;">          
+            </div>
+        </div>     
+    </div>
+    {% include "footer.html" %}

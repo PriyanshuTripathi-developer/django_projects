@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IndiaCulture360</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+</head>
+<body>
+  <h1>🌏 IndiaCulture360</h1>
+  <div id="map"></div>
+
+  {% comment %} <script>
+  const heritageSites = {{ site_data_json|safe }};
+</script> {% endcomment %}
+ <script id="site-data" type="application/json">
+  {{ site_data_json | safe }}
+</script>
+  <script src="{% static 'js/map.js' %}"></script>
+</body>
+</html>

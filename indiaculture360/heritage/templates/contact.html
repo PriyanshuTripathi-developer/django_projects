@@ -1,0 +1,67 @@
+{% include "header.html" %}
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <h1>Connect With Us</h1>
+        <p>Have questions about India's heritage? Want to collaborate or share your stories? We'd love to hear from you.</p>
+    </section>
+    
+    <!-- Contact Content -->
+    <div class="contact-container">
+        <!-- Contact Form -->
+       <div class="contact-form-section">
+            <h2>Send Us a Message</h2>
+            <form class="form" method='POST'>
+                {% csrf_token %}
+                {{ form.as_p }} 
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+        </div> 
+        <!-- Contact Info -->
+        <div class="contact-info-section">
+            <div class="contact-info-card">
+                <h3>Get In Touch</h3>
+                
+                <div class="contact-detail">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-text">
+                        <h4>Our Office</h4>
+                        <p>Dr.Ambedkar Institute of Technology for Divyangjan<br>Kanpur , Uttar Pradesh <br>India</p>
+                    </div>
+                </div>
+                
+                <div class="contact-detail">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-text">
+                        <h4>Phone</h4>
+                        <p>+91 7985243230<br>+91 9112566549</p>
+                    </div>
+                </div>
+                
+                <div class="contact-detail">
+                    <div class="contact-icon">✉️</div>
+                    <div class="contact-text">
+                        <h4>Email</h4>
+                        <p>2401661530047@aith.ac.in</p>
+                    </div>
+                </div>
+                
+                <div class="social-contact">
+                    <a href="" title="Facebook">📱</a>
+                    <a href="https://x.com/home?lang=en-in" title="Twitter">🐦</a>
+                    <a href="https://www.instagram.com/priyanshutripathi708/" title="Instagram">📷</a>
+                    <a href="https://www.linkedin.com/in/priyanshu-tripathi-66b557341/" title="YouTube">▶️</a>
+                </div>
+            </div>
+            
+            <!-- Office Map -->
+            <div class="office-map">
+                <div class="office-map-content">
+                    <h3>Visit Our Office</h3>
+                    <p>Our New Delhi office is located in the heart of the city, close to major heritage sites.</p>
+                    <p>Map integration would show our exact location here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+   {% include "footer.html" %}

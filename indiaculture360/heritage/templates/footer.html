@@ -1,0 +1,84 @@
+ {% load static %}
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>IndiaCulture360</h3>
+                <p>Preserving and showcasing India's rich cultural heritage through immersive digital experiences.</p>
+                <div class="social-links">
+                    <a href="#">📱</a>
+                    <a href="#">📘</a>
+                    <a href="#">📷</a>
+                    <a href="#">▶️</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="#">By State</a></li>
+                    <li><a href="#">By Era</a></li>
+                    <li><a href="#">By Type</a></li>
+                    <li><a href="#">UNESCO Sites</a></li>
+                    <li><a href="#">Hidden Gems</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Cultural Stories</a></li>
+                    <li><a href="{% url 'story' %}">Historical Timelines</a></li>
+                    <li><a href="#">Travel Guides</a></li>
+                    <li><a href="#">Educational Materials</a></li>
+                    <li><a href="#">Research Papers</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="{% url 'mission' %}">Our Mission</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Partners</a></li>
+                    <li><a href="#">Contribute</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 IndiaCulture360. All rights reserved. | Made with ❤️ for India's Heritage
+        </div>
+    </footer>
+
+    <script>
+         const buttons = document.querySelectorAll('.filter-btn');
+buttons.forEach(btn => {
+  btn.addEventListener('click', function() {
+    const active = document.querySelector('.filter-btn.active');
+    if (active) active.classList.remove('active');
+    this.classList.add('active');
+  });
+});
+ <script id="site-data" type="application/json">{{ site_data_json|safe }}</script>
+
+  <!-- Leaflet -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <script>
+    // Parse JSON passed from Django
+    const data = JSON.parse(document.getElementById("site-data").textContent);
+
+    // Initialize map (center of India)
+    const map = L.map("map").setView([23.5937, 80.9629], 5);
+
+    // Add OpenStreetMap tiles
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 18,
+    }).addTo(map);
+
+    // Add markers for each site
+    data.forEach(site => {
+      L.marker([site.latitude, site.longitude]).addTo(map)
+        .bindPopup(`<b>${site.name}</b><br>${site.description || ""}`);
+    });
+ <script src="{% static 'map.js' %}"></script> 
+</body>
+</html>

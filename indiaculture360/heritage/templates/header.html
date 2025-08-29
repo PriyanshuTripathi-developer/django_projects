@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndiaCulture360 - Explore Heritage Wonders</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Animated Header -->
+    <header class="header">
+        <div class="logo">
+            <span class="logo-icon">🌏</span>
+            <span>IndiaCulture360</span>
+        </div>
+        <nav class="nav-links">
+            <a href="/">Home</a>
+            <a href="{% url 'explore' %}">Explore</a>
+            <a href="{% url 'story' %}">Stories</a>
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'contact' %}">Contact</a>
+        </nav>
+        <nav style="background-color: #2cbe38;
+            padding-top: 8px;
+            height:40px;
+    width: 100px;
+    text-align: center;
+    border-radius: 50px;">
+            <i class="fa-regular fa-user"></i>
+             <button style="background: transparent; border: red;background-color: transparent; border: 0;">{{user.username}}</button>
+        </nav >
+        <form method="POST" action="{% url 'logout' %}" class="language-toggle">
+                {% csrf_token %}
+                <button class="btn btn-sm btn-outline-light">Logout</button>
+            </form> 
+    </header>

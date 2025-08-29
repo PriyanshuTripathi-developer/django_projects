@@ -1,0 +1,29 @@
+{% include "header.html" %}
+
+       <section class="featured-section">
+            <div class="section-title">
+                <h2>Featured Heritage Sites</h2>
+            </div>
+            <div class="display" style="display:grid;">
+            {% for site in sites %}
+            <div data-aos="fade-up" data-aos-duration="1500" class="featured-grid " style="display:none , width:400px">
+                <div class="site-card">
+                    <div class="card-image">
+                        <img src="{{ site.image_url }}">
+                         <span class="card-badge">{{ site.site_type }}</span>
+                    </div>
+                </div>
+                    <div class="card-content">
+                        <h3>{{ site.name }}</h3>
+                        <p>{{ site.description }}</p>
+                        <div class="card-meta">
+                            <span>{{site.state}}</span>
+                            <span>{{site.era}}</span>
+                        </div>
+                    </div>  
+                </div>
+                 {% endfor %}
+                 </div>
+        </section> 
+
+{% include "footer.html" %}
