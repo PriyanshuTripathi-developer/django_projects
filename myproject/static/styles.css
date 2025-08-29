@@ -525,6 +525,9 @@ img {
     height: 150px;
     resize: none;
 }
+.contact-form aos-init aos-animate{
+    width:370px;
+}
 
 /* Footer Styles */
 .footer {

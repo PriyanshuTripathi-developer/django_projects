@@ -1048,13 +1048,13 @@ input:focus, textarea:focus {
                         </div>
                     </div>
                 </div>
-                <div class="contact-form"data-aos="zoom-out-left" data-aos-delay="300">
-                    <form method="post" data-aos="fade-left"> 
-                        {% csrf_token %}
-                        {{ form.as_p }}   
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
+<div class="contact-form" data-aos="zoom-out-left" data-aos-delay="300" style="width:360px; ">
+    <form method="post" data-aos="fade-left" style="width:99.9%;">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+</div>
             </div>
         </div>
     </section>
@@ -1117,6 +1117,7 @@ input:focus, textarea:focus {
   <script>
     AOS.init();
   </script>
+  
     
 </body>
 </html>
